@@ -41,7 +41,7 @@ pipeline {
                 sh 'mvn -s settings.xml checkstyle:checkstyle'
             }
         }
-        stage('Soanr Analysis'){
+        stage('Sonar Analysis'){
             environment {
                 scannerHome = tool "${SONARSCANNER}"
             }
@@ -54,8 +54,7 @@ pipeline {
                     -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ 
                     -Dsonar.junit.reportsPath=target/surefire-reports/ \
                     -Dsonar.jacoco.reportsPath=target/jococo.exec \
-                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml '''
-                    
+                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml '''     
                 }
             }
         }
