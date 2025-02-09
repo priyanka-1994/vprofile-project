@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv("${SONARSERVER}") {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
+                    sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                     -Dsonar.projectName=vprofile \
                     -Dsonar.projectVersion=1.0 \
                     -Dsonar.sources=src/ \
@@ -55,7 +55,7 @@ pipeline {
                     -Dsonar.junit.reportsPath=target/surefire-reports/ \
                     -Dsonar.jacoco.reportsPath=target/jacoco.exec \
                     -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml \
-                    -Dsonar.scanner.javaOpts="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED""
+                    -Dsonar.scanner.javaOpts="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED"'''
                 }
             }
         }
