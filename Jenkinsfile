@@ -55,7 +55,8 @@ pipeline {
                     -Dsonar.junit.reportsPath=target/surefire-reports/ \
                     -Dsonar.jacoco.reportsPath=target/jococo.exec \
                     -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml \
-                    -Dsonar.javascript.disabled=true''' 
+                    -Dsonar.javascript.disabled=true \
+                    -Dsonar.java.additionalArguments="--add-opens java.base/java.lang=ALL-UNNAMED"''' 
      
                 }
             }
